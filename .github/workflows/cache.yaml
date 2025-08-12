@@ -1,4 +1,4 @@
-name: Android Fastlane Build
+name: Android Fastlane Build without Cache
 
 on:
   workflow_dispatch:
@@ -34,8 +34,13 @@ jobs:
       - name: Add Android SDK tools to PATH
         run: echo "${ANDROID_SDK_ROOT}/platform-tools:${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin" >> $GITHUB_PATH
 
-      - name: Install Fastlane
-        run: gem install fastlane
+      - name: Setup Ruby and cache gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+          bundler-cache: true
 
       - name: Build release APK with Fastlane
-        run: fastlane android build_release
+        uses: fastlane/fastlane-action@v2
+        with:
+          lane: android build_release
