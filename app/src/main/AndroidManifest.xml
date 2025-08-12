@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.mylargeproject">
+
+    <application
+        android:allowBackup="true"
+        android:label="MyLargeProject"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <activity android:name=".Screen4Activity" />
+        <activity android:name=".Screen3Activity" />
+        <activity android:name=".Screen2Activity" />
+        <activity android:name=".Screen1Activity" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
