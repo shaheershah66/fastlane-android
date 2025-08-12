@@ -2,13 +2,13 @@ name: Android Fastlane Build
 
 on:
   workflow_dispatch:
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     env:
-      ANDROID_SDK_ROOT: ${{ runner.temp }}/android-sdk
+      ANDROID_SDK_ROOT: ${{ github.workspace }}/android-sdk
 
     steps:
       - name: Checkout code
@@ -37,5 +37,5 @@ jobs:
       - name: Install Fastlane
         run: gem install fastlane
 
-      - name: Build debug APK with Fastlane
+      - name: Build release APK with Fastlane
         run: fastlane android build_release
